@@ -1,4 +1,7 @@
 {% extends "insta/layout.html" %}
 {% block body %}
-<h3>hello</h3>
+{% for post in posts %}
+<img src="{{ post.image }}" alt="post image">
+<p>{{ post.caption }}</p>
+{% endfor %}
 {% endblock %}
