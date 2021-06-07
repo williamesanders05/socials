@@ -14,6 +14,7 @@ def index(request):
         "posts": posts
     })
 
+@login_required(login_url='login')
 def create(request):
     if request.method == "POST":
         post = Posts(
@@ -24,6 +25,22 @@ def create(request):
         post.save()
         return HttpResponseRedirect(reverse("index"))
     return render(request, "insta/create.html")
+
+def account(request, username):
+    posts = Posts.objects.filter(owner = username)
+    return render(request, "insta/account.html", {
+        "posts": posts,
+        "user": username
+    })
+
+@login_required(login_url='login')
+def like(request, post_id):
+    if request.method == "POST":
+        posts = Posts.objects.filter(id = post_id)
+        for post in posts:
+            likes = post.like + 1
+            post.objects.update(likes = likes)
+        return HttpResponseRedirect(reverse("index"))
 
 def login_view(request):
     if request.method == "POST":
