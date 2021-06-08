@@ -10,4 +10,5 @@ urlpatterns = [
     path("create", views.create, name = "create"),
     path("user<str:username>", views.account, name="account"),
     path("<int:post_id>/like", views.like, name="like"),
+    path("saved", views.saved, name="saved")
 ]

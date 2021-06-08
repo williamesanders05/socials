@@ -4,6 +4,7 @@
 }
 .card {
     width: 50%;
+    max-width: 400px;
     margin: 0 auto;
     float: none;
 }
@@ -12,5 +13,5 @@
 }
 
 .usertitle {
-    align-self: center;
+    justify-content: center;
 }
