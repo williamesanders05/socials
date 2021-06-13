@@ -10,9 +10,11 @@
         <li class="list-group-item">
             <form action="{% url 'like' post.id %}" method="post">
                 {% csrf_token %}
-                <input type="submit" value="Like">
+                <button type="submit" id="likebutton">
+                    <i class="far fa-heart"></i>
+                </button>
             </form>
-            {{ post.likes }}
+            <p id="numlikes">{{ post.likes }}</p>
         </li>
         <li class="list-group-item">
             <form action="{% url 'saved' %}">
