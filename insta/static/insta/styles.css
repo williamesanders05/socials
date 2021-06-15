@@ -7,11 +7,19 @@
     max-width: 400px;
     margin: 0 auto;
     float: none;
+    align-items: center;
 }
 .card-img {
     max-height: 30%;
 }
 
 .usertitle {
-    justify-content: center;
+    text-align: center;
+}
+
+.likesave {
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    
 }

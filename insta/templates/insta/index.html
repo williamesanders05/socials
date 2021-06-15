@@ -8,19 +8,22 @@
     <img src="{{ post.image }}" alt="post" class="card-img">
     <ul class="list-group list-group-flush">
         <li class="list-group-item">
-            <form action="{% url 'like' post.id %}" method="post">
-                {% csrf_token %}
-                <button type="submit" id="likebutton">
-                    <i class="far fa-heart"></i>
-                </button>
-            </form>
-            <p id="numlikes">{{ post.likes }}</p>
-        </li>
-        <li class="list-group-item">
-            <form action="{% url 'saved' %}">
-                <input type="hidden" name="postid" id="postid" value="post.id">
-                <input type="submit" value="Save">
-            </form>
+            <div class="likesave">
+                <form action="{% url 'like' post.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" id="likebutton">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </form>
+                <p id="numlikes">{{ post.likes }}</p>
+            </div>
+            <div class="likesave">
+                <form action="{% url 'saved' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="postid" id="postid" value={{post.id}}>
+                    <input type="submit" value="Save">
+                </form>
+            </div>
         </li>
     </ul>
     <ul class="list-group list-group-flush">

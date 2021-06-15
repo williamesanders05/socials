@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('#likebutton').onclick = () => {
-        document.querySelector('#numlikes').style.color = 'red'
+    document.querySelector('#likebutton').onmouseover = () => {
+        document.querySelector('i').style.color = 'red'
+        return false;
     };
 })
